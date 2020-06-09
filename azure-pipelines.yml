@@ -19,7 +19,7 @@ steps:
     resourceGroupName: 'ADOTutorial-rg'
     location: 'Central US'
     templateLocation: 'Linked artifact'
-    csmFile: 'CreateWebbApp/azuredeploy.json'
+    csmFile: 'CreateWebApp/azuredeploy.json'
     overrideParameters: '-projectName ADOTutorial -linkedTemplateUri https://raw.githubusercontent.com/sarahlevinsempired/ADOTutorial-repo/master/CreateWebApp/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
