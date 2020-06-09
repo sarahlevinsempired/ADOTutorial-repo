@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'ADOTutorial-conn'
+    subscriptionId: 'b4e94ba9-cea0-4ce4-aaec-7d6ff22b4c2d'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'ADOTutorial-rg'
+    location: 'Central US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'CreateWebbApp/azuredeploy.json'
+    overrideParameters: |
+      -projectName ADOTutorial 
+      -linkedTemplateUri https://raw.githubusercontent.com/sarahlevinsempired/ADOTutorial-repo/master/CreateWebApp/linkedStorageAccount.json
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
