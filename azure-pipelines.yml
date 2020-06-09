@@ -21,7 +21,7 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: 'CreateWebbApp/azuredeploy.json'
     overrideParameters: |
-      -projectName ADOTutorial 
-      -linkedTemplateUri https://raw.githubusercontent.com/sarahlevinsempired/ADOTutorial-repo/master/CreateWebApp/linkedStorageAccount.json
+      '-projectName ADOTutorial 
+      -linkedTemplateUri https://raw.githubusercontent.com/sarahlevinsempired/ADOTutorial-repo/master/CreateWebApp/linkedStorageAccount.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
